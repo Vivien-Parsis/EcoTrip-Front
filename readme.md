@@ -24,3 +24,10 @@ Serveur express JS qui serve des fichiers html et des assets nécessaire pour le
 ## Adresse
 
 `http://localhost:4000`
+
+## Auteur
+
+- Vivien PARSIS
+- Adel LÊ
+- Ben SHUM
+- Ariel AMZALLAG
