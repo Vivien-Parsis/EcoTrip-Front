@@ -1,14 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/assets/css/style.css">
-</head>
-<body>
-    <h1><img src="/assets/img/logo-eco-trip-transparent.png" alt="logo eco'trip"> Eco'Trip</h1>
+    <link rel="stylesheet" href="/assets/css/style.css" />
+  </head>
+  <body>
+    <h1>
+      <img
+        src="/assets/img/logo-eco-trip-transparent.png"
+        alt="logo eco'trip"
+      />
+      Eco'Trip
+    </h1>
     <h2>Hello World !</h2>
-    <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam, recusandae nobis molestias voluptates labore voluptatum dicta veritatis, magni consequatur, illum dignissimos explicabo animi totam culpa minima inventore sint rem. Expedita. Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, aut! Ea sunt doloribus, repellat et placeat quos nesciunt, officiis illum accusamus suscipit consectetur animi quas? Velit saepe enim provident dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Laborum voluptatibus accusamus aperiam ex distinctio cumque excepturi porro adipisci quod, pariatur autem possimus cum doloribus laudantium odio at, perspiciatis aut dolorum.</p>
-</body>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam,
+      recusandae nobis molestias voluptates labore voluptatum dicta veritatis,
+      magni consequatur, illum dignissimos explicabo animi totam culpa minima
+      inventore sint rem. Expedita. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Cum, aut! Ea sunt doloribus, repellat et placeat quos
+      nesciunt, officiis illum accusamus suscipit consectetur animi quas? Velit
+      saepe enim provident dicta. Lorem ipsum dolor sit amet consectetur
+      adipisicing elit. Laborum voluptatibus accusamus aperiam ex distinctio
+      cumque excepturi porro adipisci quod, pariatur autem possimus cum
+      doloribus laudantium odio at, perspiciatis aut dolorum.
+    </p>
+
+    <button id="btn">user</button>
+    <script>
+      document.getElementById("btn").onclick = () => {
+        fetch("https://ecotrip-back.onrender.com/user/get", {
+          method: "GET",
+          mod: "cors",
+        })
+          .then((data) => {
+            data.json().then((res) => {
+              console.log(res);
+            });
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      };
+    </script>
+  </body>
 </html>
