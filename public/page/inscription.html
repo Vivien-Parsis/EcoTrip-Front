@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inscription</title>
+  <link rel="stylesheet" href="/assets/css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/alpinejs/dist/alpine.js" defer></script>
+</head>
+<header>
+    <img src="/assets/img/logo-eco-trip-transparent.png" alt="logo eco'trip" class="logo">
+    <divheader>
+    <h1>Quelle Destination ?</h1>
+    <nav>
+        <button><a href="/index.html">Accueil</a></button>
+        <button><a href="/inscription.html">Inscription</a></button>
+        <button><a href="/connexion.html">Connexion</a></button>
+    </nav>
+    
+    </divheader>
+</header>
+<body>
+
+
+  <div x-data="{ formData: { name: '', firstname: '', email: '', password: '', photoProfil: '', vehicules: '' } }">
+    <form @submit.prevent="submitForm">
+        <p>Pour plus d'aventure, inscrivez-vous gratuitement et beneficiez de toutes les fonctionnalités</p>
+      <div>
+        <label for="firtname">prenom:</label>
+        <input type="text" id="firtname" x-model="formData.nom">
+      </div>
+      <div>
+        <label for="name">nom:</label>
+        <input type="text" id="name" x-model="formData.prenom">
+      </div>
+      <div>
+        <label for="prenom">Prénom:</label>
+        <input type="text" id="prenom" x-model="formData.prenom">
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" x-model="formData.email">
+      </div>
+      <div>
+        <label for="password">Mot de passe:</label>
+        <input type="password" id="password" x-model="formData.motDePasse">
+      </div>
+      <div>
+        <label for="photoProfil">Photo de profil:</label>
+        <input type="file" id="photoProfil" accept="image/*" x-model="formData.photoProfil">
+      </div>
+      <div>
+        <label for="vehicules">Véhicules:</label>
+        <input type="text" id="vehicules" x-model="formData.vehicules">
+      </div>
+      <div>
+        <button type="submit" class="submit-button">Envoyer</button>
+      </div>
+    </form>
+  </div>
+  <footer>
+    <div class="a-propos">
+        <h2>À propos d'Eco'Trip</h2>
+        <ol>
+            <li><a href="/">Ressource et réglement</a></li>
+            <li><a href="/">Confiance et sécurité</a></li>
+            <li><a href="/">Conditions d'utilisation</a></li>
+        </ol>
+    </div>
+    <div class="explorez">
+        <h2>Explorez</h2>
+        <ol>
+            <li><a href="/addVehicule">Ajouter un lien</a></li>
+            <li><a href="/inscription.html">S'inscrire</a></li>
+            <li><a href="/reservation">Réservez vos places</a></li>
+        </ol>
+    </div>
+    <p>&copy; 2024 Eco'Trip Tous droits réservés.</p>
+</footer>
+ 
+  <script>
+    function submitForm() {
+        this.errors = [];
+    if (!this.formData.nom.trim()) {
+      this.errors.push("Le champ 'Nom' est obligatoire.");
+    }
+    if (!this.formData.prenom.trim()) {
+      this.errors.push("Le champ 'Prénom' est obligatoire.");
+    }
+
+    if (this.errors.length === 0) {
+      console.log("Données du formulaire soumises:", this.formData);
+    }
+    }
+
+    Alpine.data('formData', () => ({
+      nom: '',
+      prenom: '',
+      email: '',
+      motDePasse: '',
+      photoProfil: '',
+      vehicules: ''
+    }));
+  </script>
+  
+</body>
+</html>

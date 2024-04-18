@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de Connexion</title>
+    <link rel="stylesheet" href="/assets/css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs/dist/alpine.js" defer></script>
+</head>
+<header>
+    <img src="/assets/img/logo-eco-trip-transparent.png" alt="logo eco'trip" class="logo">
+    <divheader>
+    <h1>Quelle Destination ?</h1>
+    <nav>
+        <button><a href="/">Accueil</a></button>
+        <button><a href="/inscription.html">Inscription</a></button>
+        <button><a href="/connexion.html">Connexion</a></button>
+    </nav>
+    
+    </divheader>
+</header>
+<body>
+    <div class="container mx-auto py-8">
+        <div class="max-w-md mx-auto bg-white rounded p-8 shadow-md">
+            <h2 class="text-2xl mb-4">Connexion</h2>
+            <form x-data="{ email: '', password: '' }" @submit.prevent="login">
+                <div class="mb-4">
+                    <label for="email" class="block">Email <span class="text-red-600">*</span></label>
+                    <input type="email" id="email" x-model="email" class="form-input mt-1 block w-full" required>
+                </div>
+                <div class="mb-4">
+                    <label for="password" class="block">Mot de passe <span class="text-red-600">*</span></label>
+                    <input type="password" id="password" x-model="password" class="form-input mt-1 block w-full" required>
+                </div>
+                <div class="flex justify-between items-center mb-4">
+                    <button type="submit" class="submit-button">Se connecter</button>
+                    <a href="#" class="text-blue-500">Mot de passe oublié ?</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        <div class="a-propos">
+            <h2>À propos d'Eco'Trip</h2>
+            <ol>
+                <li><a href="/">Ressource et réglement</a></li>
+                <li><a href="/">Confiance et sécurité</a></li>
+                <li><a href="/">Conditions d'utilisation</a></li>
+            </ol>
+        </div>
+        <div class="explorez">
+            <h2>Explorez</h2>
+            <ol>
+                <li><a href="/addVehicule">Ajouter un lien</a></li>
+                <li><a href="/inscription">S'inscrire</a></li>
+                <li><a href="/reservation">Réservez vos places</a></li>
+            </ol>
+        </div>
+        <p>&copy; 2024 Eco'Trip Tous droits réservés.</p>
+    </footer>
+       
+    <script>
+        function login() {
+            console.log("Email:", this.email);
+            console.log("Mot de passe:", this.password);
+        }
+
+        Alpine.data('login', () => ({
+            email: '',
+            password: '',
+            login
+        }));
+    </script>
+</body>
+</html>
